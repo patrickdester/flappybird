@@ -1,8 +1,8 @@
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(600, 400);
 }
  
-var [xpos, ypos, xspeed, yspeed] = [225, 225, 0, 0];
+var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 0];
  
 function draw() {
   background(100);
