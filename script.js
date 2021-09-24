@@ -2,7 +2,7 @@ function setup() {
   createCanvas(600, 400);
 }
  
-var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 10];
+var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 4];
  
 function draw() {
   background(0);
@@ -14,44 +14,8 @@ function draw() {
   if(ypos >= 0 && ypos + 50 <= 400) ypos += yspeed;
 }
  
-function keyPressed() {
-  switch(keyCode) {
-    case 37:
-    case 65:
-      xspeed = -2;
-      break;
-    case 39:
-    case 68:
-      xspeed = 2;
-      break;
-    case 38:
-    case 87:
-      yspeed = -2;
-      break;
-    case 40:
-    case 83:
-      yspeed = 2;
-      break;
-  }
-}
- 
-function keyReleased() {
-  switch(keyCode) {
-    case 37:
-    case 65:
-      xspeed = 0;
-      break;
-    case 39:
-    case 68:
-      xspeed = 0;
-      break;
-    case 38:
-    case 87:
-      yspeed = 0;
-      break;
-    case 40:
-    case 83:
-      yspeed = 0;
-      break;
-   }
-}
+function keyPressed() { 
+ if(keyCode == 32){
+   ypos -=100;
+ }
+} 
