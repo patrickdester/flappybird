@@ -1,10 +1,11 @@
 var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 4];
-var pipe, pipe2;
+var pipe, pipe2, pipe3;
 
 function setup() {
   createCanvas(600, 400);
   pipe  = new Pipe(400);
   pipe2 = new Pipe(700);
+  pipe3 = new Pipe(1000);
 }
  
 
@@ -17,6 +18,7 @@ function draw() {
   
   pipe.draw();
   pipe2.draw();
+  pipe3.draw();
 
   if(xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
   if(ypos >= 0 && ypos + 50 <= 400) ypos += yspeed;
