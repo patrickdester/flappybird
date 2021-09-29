@@ -1,6 +1,8 @@
 var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 4];
 var pipe, pipe2, pipe3;
 
+
+
 function setup() {
   createCanvas(600, 400);
   pipe  = new Pipe(400);
@@ -31,12 +33,12 @@ function keyPressed() {
 } 
 
 class Pipe {
-  constructor(startx  ){
+  constructor(startx){
     this.x = startx;
   }
 
   draw(){
-    rect(this.x, 0, 50, 80);
+    rect(this.x, 0, 50, 150);
     this.x=this.x-1;
   } 
 }
