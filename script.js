@@ -2,14 +2,10 @@ var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 4];
 var pipe, pipe2, pipe3;
 
 
-
+var pipes = [];
 function setup() {
   createCanvas(600, 400);
-  pipe  = new Pipe(400);
-  pipe2 = new Pipe(700);
-  pipe3 = new Pipe(1000);
 }
- 
 
 
 function draw() {
@@ -17,10 +13,15 @@ function draw() {
   
   fill(0, 255, 0);
   circle(xpos, ypos, 25, 50);
+
+  if(frameCount % 100 == 0){   
+    pipes.push(new Pipe(700));
+    console.log("NIEUWE PIPE!")
+  }
+
+  console.log(frameCount);
   
-  pipe.draw();
-  pipe2.draw();
-  pipe3.draw();
+  pipes.forEach(p => p.draw());
 
   if(xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
   if(ypos >= 0 && ypos + 50 <= 400) ypos += yspeed;
