@@ -36,12 +36,13 @@ function keyPressed() {
 class Pipe {
   constructor(startx){
     this.x = startx;
+    this.h = random(height/3)
   }
 
   draw(){
-    rect(this.x, 0, 50, 150);
+    rect(this.x, 0, 50, this.h);
     this.x=this.x-1;
-    rect(this.x, 300, 50, 150)
+    rect(this.x, this.h + 150, 50, 400)
 
   }  
 }
