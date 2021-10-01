@@ -11,7 +11,7 @@ function setup() {
 function draw() {
   background(0);
   
-  fill(0, 255, 0);
+  fill(255, 0, 0);
   circle(xpos, ypos, 25, 50);
 
   if(frameCount % 250 == 0){   
