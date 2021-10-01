@@ -29,7 +29,7 @@ function draw() {
  
 function keyPressed() { 
  if(keyCode == 32){
-   ypos -=100;
+   ypos -=75;
  }
 } 
 
@@ -41,5 +41,7 @@ class Pipe {
   draw(){
     rect(this.x, 0, 50, 150);
     this.x=this.x-1;
-  } 
+    rect(this.x, 300, 50, 150)
+
+  }  
 }
