@@ -14,12 +14,12 @@ function draw() {
   fill(0, 255, 0);
   circle(xpos, ypos, 25, 50);
 
-  if(frameCount % 100 == 0){   
+  if(frameCount % 250 == 0){   
     pipes.push(new Pipe(700));
     console.log("NIEUWE PIPE!")
   }
 
-  console.log(frameCount);
+  
   
   pipes.forEach(p => p.draw());
 
