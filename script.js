@@ -60,6 +60,7 @@ class Pipe {
     }
     else{
       fill("green");
+    
     }
   }
 }
