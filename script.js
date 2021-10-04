@@ -10,39 +10,56 @@ function setup() {
 
 function draw() {
   background(0);
-  
-  fill(255, 0, 0);
+
+  fill("green");
   circle(xpos, ypos, 25, 50);
 
-  if(frameCount % 250 == 0){   
+  if (frameCount % 250 == 0) {
     pipes.push(new Pipe(700));
     console.log("NIEUWE PIPE!")
   }
 
-  
-  
-  pipes.forEach(p => p.draw());
 
-  if(xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
-  if(ypos >= 0 && ypos + 50 <= 400) ypos += yspeed;
+
+  pipes.forEach((p) => {
+    p.draw()
+    p.checkCollision();
+  });
+
+  if (xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
+  if (ypos >= 0 && ypos + 50 <= 400) ypos += yspeed;
 }
- 
-function keyPressed() { 
- if(keyCode == 32){
-   ypos -=75;
- }
-} 
+
+function keyPressed() {
+  if (keyCode == 32) {
+    ypos -= 80;
+  }
+}
 
 class Pipe {
-  constructor(startx){
+  constructor(startx) {
     this.x = startx;
-    this.h = random(height/3)
+    this.h = random(height / 4)
   }
 
-  draw(){
-    rect(this.x, 0, 50, this.h);
-    this.x=this.x-1;
-    rect(this.x, this.h + 150, 50, 400)
 
-  }  
+  draw() {
+    rect(this.x, 0, 50, this.h);
+    this.x = this.x - 1;
+    rect(this.x, this.h + 150, 50, 400);
+  }
+
+  checkCollision() {
+    
+    // todo: this.x, this.y etc.. gebruiken
+   if (xpos < this.x + this.w && xpos + 50 > 100) {
+      fill("red");
+   if (ypos < this.y + this.h && ypos + 50 > 100) {
+      fill("red");
+     }
+    }
+    else{
+      fill("green");
+    }
+  }
 }
