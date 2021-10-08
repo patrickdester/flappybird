@@ -1,6 +1,6 @@
-var [xpos, ypos, xspeed, yspeed] = [125, 225, 0, 4];
+var [xpos, ypos, xspeed, yspeed] = [200, 225, 0, 4];
 var pipe, pipe2, pipe3;
-
+var gameState = 1;
 
 var pipes = [];
 function setup() {
@@ -14,11 +14,10 @@ function draw() {
   fill("green");
   circle(xpos, ypos, 25, 50);
 
-  if (frameCount % 250 == 0) {
+  if (frameCount % 100 == 0) {
     pipes.push(new Pipe(700));
     console.log("NIEUWE PIPE!")
   }
-
 
 
   pipes.forEach((p) => {
@@ -40,27 +39,28 @@ class Pipe {
   constructor(startx) {
     this.x = startx;
     this.h = random(height / 4)
+    this.c = "green";
+    this.w = 50
+    this.y = this.h
   }
 
 
   draw() {
-    rect(this.x, 0, 50, this.h);
-    this.x = this.x - 1;
+    fill(this.c)
+    rect(this.x, 0, this.w, this.h);
+    this.x = this.x - 5;
     rect(this.x, this.h + 150, 50, 400);
   }
 
   checkCollision() {
-    
     // todo: this.x, this.y etc.. gebruiken
-   if (xpos < this.x + this.w && xpos + 50 > 100) {
-      fill("red");
-   if (ypos < this.y + this.h && ypos + 50 > 100) {
-      fill("red");
-     }
-    }
-    else{
+    if (xpos - 25 > this.x && xpos + 25 > this.x + this.w) {
+      this.c = "red";
+      if (ypos - 25 > this.y && ypos + 25 > this.y + this.h) {
+        fill("red"); }
+    else {
       fill("green");
-    
+     }
     }
   }
 }
