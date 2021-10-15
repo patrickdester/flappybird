@@ -54,7 +54,7 @@ function game() {
     xpos += xspeed
   }
   if (ypos >= 0 && ypos + 50 <= 400) {
-    if(yspeed < 5){
+    if (yspeed < 5) {
       yspeed += acc;
     }
 
@@ -105,12 +105,13 @@ class Pipe {
   }
 
   checkCollision() {
-    if (xpos + 25 > this.x && xpos < this.x + this.w) {
-      this.c = "orange";
-      //gameState = 2;
+    if (xpos + 25 > this.x && 25 < this.x + this.w) {
+      //this.c = "orange";
+
       ///console.log(ypos < this.h, ypos + 50 > this.h + 150)
-      if (ypos < this.h && ypos + 50 > this.h + 150) {
-        this.c = "red";
+      if (ypos + 50 > this.y && ypos > this.y + this.h) {
+       // this.c = "red";
+        gameState = 2;
       }
     }
   }
