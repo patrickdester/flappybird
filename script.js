@@ -5,6 +5,10 @@ var x = 0;
 var pipes = [];
 var score = 0;
 
+function preload(){
+  img = loadImage("background.png")
+  img2 = loadImage("vogel2.png")
+  }
 
 
 function setup() {
@@ -39,13 +43,14 @@ function menu() {
 }
 
 function game() {
-  background(0);
+  background(img);
   textSize(24);
   text("Score: "+ score, 10, 30)
 
   fill("green");
-  rect(xpos, ypos, 25, 50);
-
+  //rect(xpos, ypos, 25, 50);
+  image(img2, xpos, ypos, 50, 50)
+  
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe(700));
     console.log("NIEUWE PIPE!")
