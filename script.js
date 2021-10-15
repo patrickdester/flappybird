@@ -71,7 +71,7 @@ function game() {
 
     ypos += yspeed
   };
-  if (frameCount % 100 == 0 && pipes.length > 4) {
+  if (frameCount % 100 == 0 && pipes.length > 1) {
     score++;
   }
 }
