@@ -1,14 +1,14 @@
 var [xpos, ypos, xspeed, yspeed, acc] = [200, 225, 0, 0, 0.1];
 var pipe, pipe2, pipe3;
-var gameState = 1;
+var gameState = 0;
 var x = 0;
 var pipes = [];
 var score = 0;
 
-function preload(){
+function preload() {
   img = loadImage("background.png")
   img2 = loadImage("vogel2.png")
-  }
+}
 
 
 function setup() {
@@ -37,20 +37,20 @@ function draw() {
 function menu() {
   background("#ababab");
   text("MENU", 25, 45);
-  text("1. menu", 25, 65);
-  text("2. start game", 25, 85);
-  text("3. game over", 25, 105);
+  text("Press 1 for menu", 25, 65);
+  text("Press 2 to start game", 25, 85);
+  text("Press 3 to end game", 25, 105);
 }
 
 function game() {
   background(img);
   textSize(24);
-  text("Score: "+ score, 10, 30)
+  text("Score: " + score, 10, 30)
 
   fill("green");
   //rect(xpos, ypos, 25, 50);
   image(img2, xpos, ypos, 50, 50)
-  
+
   if (frameCount % 100 == 0) {
     pipes.push(new Pipe(700));
     console.log("NIEUWE PIPE!")
@@ -72,7 +72,7 @@ function game() {
     ypos += yspeed
   };
   if (frameCount % 100 == 0 && pipes.length > 4) {
-    score ++;
+    score++;
   }
 }
 
