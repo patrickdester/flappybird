@@ -3,6 +3,10 @@ var pipe, pipe2, pipe3;
 var gameState = 1;
 var x = 0;
 var pipes = [];
+var score = 0;
+
+
+
 function setup() {
   createCanvas(600, 400);
 }
@@ -36,6 +40,8 @@ function menu() {
 
 function game() {
   background(0);
+  textSize(24);
+  text("Score: "+ score, 10, 30)
 
   fill("green");
   rect(xpos, ypos, 25, 50);
@@ -60,6 +66,9 @@ function game() {
 
     ypos += yspeed
   };
+  if (frameCount % 100 == 0 && pipes.length > 4) {
+    score ++;
+  }
 }
 
 function gameOver() {
@@ -110,7 +119,7 @@ class Pipe {
 
       ///console.log(ypos < this.h, ypos + 50 > this.h + 150)
       if (ypos + 50 > this.y && ypos > this.y + this.h) {
-       // this.c = "red";
+        // this.c = "red";
         gameState = 2;
       }
     }
